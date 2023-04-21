@@ -66,11 +66,15 @@ namespace GameSix
             private static void Main(string[] args)
             {
                 // C r e a t e a new Foe
-            Foe loki = new Foe ("Loki");
-            // Changed my mind . Let ’ s u s e t h e f u l l name .
-            loki.SetName(" Grindalokki ");
-            // Show name and h e a l t h
-            Console.WriteLine($"Name is {loki.GetName()} and HP is {loki.GetHealth()}");
+                Foe loki = new Foe ("Loki");
+                // Changed my mind . Let ’ s u s e t h e f u l l name .
+                loki.SetName(" Grindalokki ");
+                // Show name and h e a l t h
+                Console.WriteLine($"Name is {loki.GetName()} and HP is {loki.GetHealth()}");
+
+                Console.Write("How much enemies: ");
+                string enemystr = Console.ReadLine();
+                int enemyarraynumber = int.Parse(enemystr);
             }
 
             
