@@ -86,7 +86,7 @@ namespace GameSix
 
                 for (int i = 0; i < enemies.Length; i++)
                 {
-                    Console.Write($"The name of the {i + 1}º enemy is {enemies[i]}");
+                    Console.WriteLine($"The name of the {i + 1}º enemy is {enemies[i]}");
                 }
 
 
