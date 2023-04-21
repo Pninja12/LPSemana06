@@ -75,6 +75,21 @@ namespace GameSix
                 Console.Write("How much enemies: ");
                 string enemystr = Console.ReadLine();
                 int enemyarraynumber = int.Parse(enemystr);
+
+                string[] enemies = new string[enemyarraynumber];
+
+                for (int i = 0; i < enemyarraynumber; i++)
+                {
+                    Console.Write($"What is the name of the {i + 1}º enemy: ");
+                    enemies[i] = Console.ReadLine();
+                }
+
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    Console.Write($"The name of the {i + 1}º enemy is {enemies[i]}");
+                }
+
+
             }
 
             
