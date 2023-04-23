@@ -6,6 +6,13 @@ namespace GameSix
     {
         public class Foe
         {
+            [Flags]
+            enum PowerUp
+            {
+                Health = 1 << 0 , // 1
+                Shield = 1 << 1 , // 2
+            } ;
+
             private string name;
             private float health;
             private float shield;
@@ -22,7 +29,7 @@ namespace GameSix
                 return name;
             }
 
-            public void TakeDamage (float damage )
+            public void TakeDamage (float damage)
             {
                 shield -= damage ; //A variável "shield" retira a ela própria o valor de "damage"
                 if (shield < 0 ) //Se o shield for menor que 0
@@ -63,8 +70,29 @@ namespace GameSix
 
                 name = newname;
             }
-            private static void Main(string[] args)
+
+            public void PickupPowerup(PowerUp _enemypower ,float numero)
             {
+                if((_enemypower & PowerUp.Health) == PowerUp.Health)
+                {
+                    if(health + numero <= 100)   
+                        health += numero;
+                }
+
+                if((_enemypower & PowerUp.Shield) == PowerUp.Shield)
+                {
+                    if(shield + numero <= 100)   
+                        shield += numero;
+                }
+            }
+
+            
+
+            private static void Main(string[] args)
+            { 
+                PowerUp enemypower = 0;
+                //int enemypowerup = 0;
+
                 // C r e a t e a new Foe
                 Foe loki = new Foe ("Loki");
                 // Changed my mind . Let ’ s u s e t h e f u l l name .
@@ -89,6 +117,10 @@ namespace GameSix
                     Console.WriteLine($"The name of the {i + 1}º enemy is {enemies[i]}");
                 }
 
+                TakeDamage(5);
+                PickupPowerup(enemypower, 5);
+
+                Console.WriteLine($"\nHealth:{this.health}\nShield:{this.shield}");
 
             }
 
